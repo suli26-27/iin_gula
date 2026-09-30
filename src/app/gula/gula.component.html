@@ -15,12 +15,32 @@
 
 <form [formGroup]="gulaForm" (ngSubmit)="startCalc()">
     <div>
-        <label for="height" class="form-lable">Magasság</label>
+        <label for="height" class="form-lable">Magasság
+            @if(gulaForm.get('height')?.hasError('required') &&
+                gulaForm.get('height')?.touched  ) {
+                <span class="error">A magasságot kötelező megadni!</span>
+            }
+            @if(gulaForm.get('height')?.hasError('min') &&
+                gulaForm.get('height')?.touched  ) {
+                <span class="error">Az érték minimum 1!</span>
+            }
+
+        </label>
         <input type="text" id="height" formControlName="height"
         class="form-control">
     </div>
     <div>
-        <label for="baseSide" class="form-lable">Az alap egyik oldala</label>
+        <label for="baseSide" class="form-lable">Az alap egyik oldala
+
+            @if(gulaForm.get('baseSide')?.hasError('required') &&
+                gulaForm.get('baseSide')?.touched  ) {
+                <span class="error">Az oldalt kötelező megadni!</span>
+            }
+            @if(gulaForm.get('baseSide')?.hasError('min') &&
+                gulaForm.get('baseSide')?.touched  ) {
+                <span class="error">Az érték minimum 1!</span>
+            }            
+        </label>
         <input type="text" id="baseSide" formControlName="baseSide"
         class="form-control">
     </div>
@@ -31,7 +51,7 @@
         <div>
             <label for="volume" class="form-lable">Térfogat</label>
             <input type="text" id="volume" formControlName="volume"
-            class="form-control">
+            class="form-control" readonly>
         </div>
     }
 
