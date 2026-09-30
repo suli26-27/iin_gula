@@ -1,3 +1,12 @@
+/*
+* File: app.ts
+* Author: Erős István
+* Copyright: 2026, Erős István
+* Group: Szoft II-N
+* Date: 2026-09-30
+* Github: https://github.com/eros/
+* Licenc: MIT
+*/
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 
